@@ -39,6 +39,8 @@ async def ping(interaction: discord.Interaction):
 @commands.has_permissions(administrator=True)
 async def update(interaction: discord.Interaction):
     await interaction.response.send_message("Updating bot...", ephemeral=False)
+    if "testbot" in os.getcwd():
+        os.chdir("..")
     os.system("git config --global --add safe.directory '*'") # just dont do this to your dev machine
     os.system("git pull")
     await interaction.followup.send("Bot updated. Restarting...", ephemeral=False)
