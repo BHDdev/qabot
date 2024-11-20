@@ -61,7 +61,9 @@ async def checkout(interaction: discord.Interaction, pr: str):
 @bot.tree.command(name="shutdown")
 @commands.has_permissions(administrator=True)
 async def shutdown(interaction: discord.Interaction):
-    os.system("killall python3")
+    os.system("killall -SIGINT python3") # try a clean shutdown first
+    time.sleep(5)
+    os.system("killall python3") # force kill
     await interaction.response.send_message("Shutting down bot...", ephemeral=False)
 
 @bot.tree.command(name="start")
