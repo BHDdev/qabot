@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  discord-bot:
+  discord-bot-qa:
     build: .
     restart: unless-stopped
     working_dir: /app
