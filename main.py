@@ -5,7 +5,6 @@ import requests
 import dotenv
 import re
 import os
-from data import implantData
 
 dotenv.load_dotenv()
 
